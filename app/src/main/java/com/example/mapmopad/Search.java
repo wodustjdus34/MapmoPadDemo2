@@ -20,7 +20,7 @@ public class Search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        Button addmemobtn = (Button) findViewById(R.id.addmemo);
+        Button addmemobtn = (Button) findViewById(R.id.addmemo2);
         addmemobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
