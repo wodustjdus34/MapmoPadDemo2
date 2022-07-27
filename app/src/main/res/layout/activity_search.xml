@@ -55,7 +55,7 @@
 
     <Button
         android:layout_below="@+id/searchmemo"
-        android:id="@id/addmemo"
+        android:id="@+id/addmemo2"
         android:layout_marginLeft="350dp"
         android:layout_width="50dp"
         android:layout_height="50dp"

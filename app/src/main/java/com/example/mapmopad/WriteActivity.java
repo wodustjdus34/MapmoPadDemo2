@@ -18,14 +18,7 @@ public class WriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write);
 
-        Button addmemo = (Button) findViewById(R.id.addmemo);
-        addmemo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), WriteActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
         EditText descriptionInput = findViewById(R.id.descriptionInput);
         Button savememo = (Button) findViewById(R.id.savememo);
@@ -45,7 +38,7 @@ public class WriteActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "SAVE IT", Toast.LENGTH_SHORT).show();
                 finish();
 
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Search.class);
                 startActivity(intent);
             }
         });
