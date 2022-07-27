@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Search">
+
+    <LinearLayout
+        android:id="@+id/topTitle"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="-"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:background="@drawable/round"
+            android:layout_margin="10dp">
+        </Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MapMoPad"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:layout_marginRight="80dp">
+        </TextView>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/searchmemo"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@+id/topTitle">
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:hint="전체 메모"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:layout_marginLeft="115dp"
+            tools:ignore="TouchTargetSizeCheck"></EditText>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_below="@+id/searchmemo"
+        android:id="@id/addmemo"
+        android:layout_marginLeft="350dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="+"
+        android:textSize="40dp"
+        android:textColor="@color/white"
+        android:background="@drawable/round"
+        android:layout_marginVertical="10dp"
+        >
+    </Button>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerview"
+        android:layout_below="@+id/searchmemo"
+        android:layout_marginTop="70dp"/>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</RelativeLayout>
