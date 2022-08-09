@@ -32,5 +32,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button keywordbtn = (Button) findViewById(R.id.keyword);
+        keywordbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CrowlingTest.class);
+                startActivity(intent);
+            }
+        });
     }
 }
