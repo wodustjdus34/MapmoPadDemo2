@@ -12,6 +12,7 @@
         android:layout_height="70dp">
 
         <Button
+            android:id="@+id/home"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="-"
@@ -74,15 +75,15 @@
             android:layout_below="@+id/searchmemo"
             android:layout_marginTop="70dp" />
 
-        <androidx.drawerlayout.widget.DrawerLayout
-            android:id="@+id/drawer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"></androidx.appcompat.widget.LinearLayoutCompat>
-        </androidx.drawerlayout.widget.DrawerLayout>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 
 
