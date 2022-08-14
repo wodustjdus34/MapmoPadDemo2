@@ -30,6 +30,15 @@ public class Search extends AppCompatActivity {
             }
         });
 
+        Button mainBtn = findViewById(R.id.main);
+        mainBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();
 
@@ -52,14 +61,13 @@ public class Search extends AppCompatActivity {
             }
         });
 
+
         notesList.addChangeListener(new RealmChangeListener<RealmResults<Note>>() {
             @Override
             public void onChange(RealmResults<Note> notes) {
                 myAdapter.notifyDataSetChanged();
             }
         });
-
-
 
     }
 }

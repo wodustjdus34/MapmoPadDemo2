@@ -29,6 +29,15 @@ public class Detail extends AppCompatActivity {
         int listNumber = bundle.getInt("POS");
         textView.setText(notesList.get(listNumber).getDescription());
 
+        Button mainBtn = findViewById(R.id.main);
+        mainBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Button deleteBtn = findViewById(R.id.delete);
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
