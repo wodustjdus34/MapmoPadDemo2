@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
@@ -39,11 +40,26 @@ public class Search extends AppCompatActivity {
         MyAdapter myAdapter = new MyAdapter(notesList);
         recyclerView.setAdapter(myAdapter);
 
+        myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                Intent intent = new Intent(getApplicationContext(), Detail.class);
+                Bundle bundle = new Bundle();
+                bundle.putInt("POS", position);
+                intent.putExtras(bundle);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getApplicationContext().startActivity(intent);
+            }
+        });
+
         notesList.addChangeListener(new RealmChangeListener<RealmResults<Note>>() {
             @Override
             public void onChange(RealmResults<Note> notes) {
                 myAdapter.notifyDataSetChanged();
             }
         });
+
+
+
     }
 }

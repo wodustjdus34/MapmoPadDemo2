@@ -1,5 +1,7 @@
 package com.example.mapmopad;
 
+import static io.realm.Realm.getApplicationContext;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -19,13 +21,20 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     RealmResults<Note> notesList;
 
+    public interface OnItemClickListener {
+        void onItemClick(View v, int position);
+    }
 
+    private OnItemClickListener mListener = null;
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.mListener = listener;
+    }
 
     public MyAdapter(RealmResults<Note> notesList) {
         this.notesList = notesList;
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
 
 
         TextView descriptionOutput;
@@ -33,6 +42,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             descriptionOutput = itemView.findViewById(R.id.descriptionoutput);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAbsoluteAdapterPosition();
+                    if (pos != RecyclerView.NO_POSITION) {
+                        if (mListener != null) {
+                            mListener.onItemClick(v, pos);
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -59,5 +79,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public int getItemCount() {
         return notesList.size();
     }
+
 
 }
