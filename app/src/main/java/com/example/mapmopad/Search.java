@@ -54,7 +54,7 @@ public class Search extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        MyAdapter myAdapter = new MyAdapter(getApplicationContext(), notesList);
+        MyAdapter myAdapter = new MyAdapter(notesList);
         recyclerView.setAdapter(myAdapter);
 
         notesList.addChangeListener(new RealmChangeListener<RealmResults<Note>>() {
