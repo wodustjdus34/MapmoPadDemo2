@@ -35,27 +35,7 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/searchmemo"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_below="@+id/topTitle">
-
-        <EditText
-            android:id="@+id/edit_text"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:hint="전체 메모"
-            android:gravity="center"
-            android:paddingRight="10dp"
-            android:layout_marginLeft="115dp"
-            tools:ignore="TouchTargetSizeCheck"></EditText>
-
-    </LinearLayout>
-
     <Button
-        android:layout_below="@+id/searchmemo"
         android:id="@+id/addmemo2"
         android:layout_marginLeft="350dp"
         android:layout_width="50dp"
@@ -72,19 +52,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerview"
-        android:layout_below="@+id/searchmemo"
+        android:scrollbars="vertical"
         android:layout_marginTop="70dp"/>
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    </androidx.drawerlayout.widget.DrawerLayout>
 
 </RelativeLayout>
