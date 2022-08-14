@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
                 .deleteRealmIfMigrationNeeded()
+                .allowWritesOnUiThread(true)
                 .build();
         Realm.setDefaultConfiguration(config);
         super.onCreate(savedInstanceState);

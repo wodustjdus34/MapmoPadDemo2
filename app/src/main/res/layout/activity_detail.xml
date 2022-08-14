@@ -34,7 +34,7 @@
         </TextView>
 
         <Button
-            android:id="@+id/addmemo2"
+            android:id="@+id/delete"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="-"
