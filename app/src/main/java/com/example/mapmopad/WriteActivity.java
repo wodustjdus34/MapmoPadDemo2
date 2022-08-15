@@ -30,10 +30,12 @@ public class WriteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String description = descriptionInput.getText().toString();
+                long createdTime = System.currentTimeMillis();
 
                 realm.beginTransaction();
                 Note note = realm.createObject(Note.class);
                 note.setDescription(description);
+                note.setCreatedTime(createdTime);
                 realm.commitTransaction();
                 Toast.makeText(getApplicationContext(), "SAVE IT", Toast.LENGTH_SHORT).show();
                 finish();

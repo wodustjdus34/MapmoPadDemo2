@@ -14,5 +14,15 @@
         android:maxLines="2"
         android:text="long long long description\n\n\n\n\n\n\n\n"
         />
-
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/timeoutput"
+        android:text="2020.8.00"
+        android:layout_below="@+id/descriptionoutput"
+        android:gravity="end"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        />
 </RelativeLayout>

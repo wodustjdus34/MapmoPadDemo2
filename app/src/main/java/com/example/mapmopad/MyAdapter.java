@@ -14,6 +14,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -38,10 +40,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
 
         TextView descriptionOutput;
+        TextView timeOutput;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             descriptionOutput = itemView.findViewById(R.id.descriptionoutput);
+            timeOutput = itemView.findViewById(R.id.timeoutput);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -72,6 +76,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         Note note = notesList.get(position);
         holder.descriptionOutput.setText(note.getDescription());
 
+        String formatedTime = DateFormat.getDateTimeInstance().format(note.createdTime);
+        holder.timeOutput.setText(formatedTime);
         };
 
 
@@ -79,6 +85,4 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public int getItemCount() {
         return notesList.size();
     }
-
-
 }
