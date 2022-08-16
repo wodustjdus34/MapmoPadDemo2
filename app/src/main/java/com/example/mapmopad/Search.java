@@ -13,6 +13,7 @@ import android.widget.Toast;
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 public class Search extends AppCompatActivity {
 
@@ -42,7 +43,7 @@ public class Search extends AppCompatActivity {
         Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();
 
-        RealmResults<Note> notesList = realm.where(Note.class).findAll();
+        RealmResults<Note> notesList = realm.where(Note.class).sort("createdTime", Sort.DESCENDING).findAll();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
