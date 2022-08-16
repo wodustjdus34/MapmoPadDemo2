@@ -58,10 +58,10 @@ public class WriteActivity extends AppCompatActivity {
 
     // 목적어 추출하기 (예 : {'학교','수업'})
     public Vector<String> FindKeyword2(String[] s){
-        Vector<String> v = new Vector<String>();
+        Vector<String> v = new Vector<>(); // {'학교','학교','수업'}
 
         for(int i = 0; i< s.length; i++){
-            if ( s[i].endsWith("s")){
+            if ( s[i].endsWith("s")&&!v.contains(s[i].substring(0, s[i].length()-1))){
                 v.add(s[i].substring(0, s[i].length()-1));
             }
         }
