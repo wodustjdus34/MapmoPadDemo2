@@ -6,6 +6,8 @@ public class Keyword extends RealmObject {
     String object;
     int frequency;
 
+    public Keyword() { }
+
     public Keyword(String object, int frequency) {
         this.object = object;
         this.frequency = frequency;
