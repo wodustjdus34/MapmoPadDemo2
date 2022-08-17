@@ -39,8 +39,6 @@ public class DetailKeywordNotes extends AppCompatActivity {
         String description = notesList.get(listNumber).getDescription();
         textView.setText(description);
 
-        Toast.makeText(getApplicationContext(),words.toString(),Toast.LENGTH_LONG).show();
-
         ImageButton mainBtn = findViewById(R.id.main5);
         mainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
