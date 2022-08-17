@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             categoryBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(getApplicationContext(), test.class);
+                    Intent intent = new Intent(getApplicationContext(), KeywordList.class);
                     startActivity(intent);
                 }
             });

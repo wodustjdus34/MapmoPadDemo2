@@ -34,7 +34,7 @@
             android:id="@+id/category"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:text="s"
+            android:text="*"
             android:textSize="40dp"
             android:textColor="@color/white"
             android:background="@drawable/round"
