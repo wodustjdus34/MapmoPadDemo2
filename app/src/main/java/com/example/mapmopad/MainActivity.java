@@ -3,9 +3,11 @@ package com.example.mapmopad;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button addmemo = (Button) findViewById(R.id.addmemo);
+        ImageButton addmemo = findViewById(R.id.addmemo);
         addmemo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button categoryBtn = findViewById(R.id.category);
+        ImageButton categoryBtn = findViewById(R.id.category);
             categoryBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

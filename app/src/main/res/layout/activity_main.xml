@@ -8,49 +8,35 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp">
+        android:layout_height="70dp"
+        android:orientation="horizontal">
 
-        <Button
+        <ImageButton
+            android:id="@+id/category"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:text="-"
-            android:textSize="40dp"
-            android:textColor="@color/white"
-            android:background="@drawable/round"
-            android:layout_margin="10dp">
-        </Button>
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_category" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MapMoPad"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_weight="1"
             android:padding="15dp"
-            android:layout_marginRight="80dp">
-        </TextView>
+            android:text="MapMoPad"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/category"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:text="*"
-            android:textSize="40dp"
-            android:textColor="@color/white"
-            android:background="@drawable/round"
-            android:layout_margin="10dp">
-        </Button>
-
-        <Button
+        <ImageButton
             android:id="@+id/addmemo"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:text="+"
-            android:textSize="40dp"
-            android:textColor="@color/white"
-            android:background="@drawable/round"
-            android:layout_marginVertical="10dp">
-        </Button>
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_add" />
 
     </LinearLayout>
 
