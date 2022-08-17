@@ -31,9 +31,10 @@
         </TextView>
 
         <Button
+            android:id="@+id/category"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:text="s"
+            android:text="*"
             android:textSize="40dp"
             android:textColor="@color/white"
             android:background="@drawable/round"
@@ -62,17 +63,5 @@
         android:paddingRight="30dp"
         android:text="User name"
         android:textSize="15dp" />
-
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/keyword"
-        android:text="K"
-        android:textSize="40dp"
-        android:textColor="@color/white"
-        android:background="@drawable/round"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="200dp"
-        tools:ignore="NotSibling" />
 
 </RelativeLayout>

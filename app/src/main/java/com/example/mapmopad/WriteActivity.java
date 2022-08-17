@@ -1,6 +1,5 @@
 package com.example.mapmopad;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,18 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import java.security.Key;
+import java.util.List;
 import java.util.Vector;
 
 import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class WriteActivity extends AppCompatActivity {
-
-    //밑에 list contains함수 사용하는데 필요할 것 같아서 override
-    //근데 @Override 하면 오류뜸
-    public boolean equals(@Nullable Keyword keyword) {
-        return super.equals(keyword.object);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,66 +31,32 @@ public class WriteActivity extends AppCompatActivity {
         Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();
 
-
-
         savememo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String description = descriptionInput.getText().toString();
                 long createdTime = System.currentTimeMillis();
 
-                //함수에 description 가져다 씀
-                //함수 돌고 나오는 변수(키워드 리스트)에 object변수 연결
-                //기본 frequency는 0으로 초기화
-                int frequency;
-                ArrayList category = new ArrayList();
-
                 realm.beginTransaction();
                 Note note = realm.createObject(Note.class);
                 note.setDescription(description);
                 note.setCreatedTime(createdTime);
 
-//                categorizing - 키워드 추출
-                Keyword keyword = realm.createObject(Keyword.class);
-
-                Vector<String> extractedKeyword = new Vector<String>(); //vector로 전환
-                String[] split = description.split("\\s|,|\\."); //띄어쓰기, 줄바꿈 split
-                for (int i = 0; i < split.length; i++) {
-                    String str = split[i];
-                    int index_last = str.length() - 1;
-                    if (str.charAt(index_last) == '을' || str.charAt(index_last) == '를'
-                            || str.charAt(index_last) == '은' || str.charAt(index_last) == '는'
-                            || str.charAt(index_last) == '이' || str.charAt(index_last) == '가') {
-                        extractedKeyword.add(str.substring(0, index_last));
-                    }
-
-                    //중복 삭제 (vector가 키워드를 포함하지 않는다면 add)
-                    //하나씩 category Array에 add
-                    for (String j : extractedKeyword) {
-                        if(!extractedKeyword.contains(j))
-                            extractedKeyword.add(j);
-                        else continue;
-
-                        //존재하는 키워드인지 확인(리스트 검사)
-                        //존재하는 키워드면 realm에서 frequency불러와서 +1
-                        //존재하지 않는 키워드면 realm에 frequency 1로 생성
-
-                        if (category.contains(j)) {
-                            keyword.setObject(j);
-                            frequency = keyword.getFrequency();
-                            keyword.setFrequency(++frequency);
-                            category.add(new Keyword(j, frequency));
-                        }
-                        else {
-                            keyword.setObject(j);
-                            keyword.setFrequency(1);
-                            category.add(new Keyword(j, 1));
-                        }
+                Vector<String> s = FindKeyword2(FindKeyword1(description));
+                for(int i = 0; i<s.size(); i++){
+                    RealmResults<Keyword> keywords = realm.where(Keyword.class).contains("category",s.get(i)).findAll();
+                    if(keywords.isEmpty()){
+                    Keyword keyword = realm.createObject(Keyword.class);
+                    keyword.setCategory(s.get(i));
+                    keyword.setNum(1);}
+                    else{
+                        keywords.setInt("num",keywords.get(0).getNum()+1);
                     }
                 }
-
                 realm.commitTransaction();
-                Toast.makeText(getApplicationContext(), "SAVE IT", Toast.LENGTH_SHORT).show();
+                RealmResults<Keyword> keywords = realm.where(Keyword.class).findAll();
+                Toast.makeText(getApplicationContext(), keywords.toString(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "SAVE IT", Toast.LENGTH_SHORT).show();
                 finish();
 
                 Intent intent = new Intent(getApplicationContext(), Search.class);
@@ -103,4 +64,32 @@ public class WriteActivity extends AppCompatActivity {
             }
         });
     }
+    // (예 : 사과를 먹고 싶다. 사과를 샀다. 바나나를 버렸다.)
+    // 단어 나누기 (예 : {'사과를','먹고', '싶다', '', '사과를', '샀다', '', '바나나를', '버렸다'} )
+    public String[] FindKeyword1(String s) {
+        String[] list = s.split("\\s|,|\\.");
+        return list;
+    }
+
+    // 목적어 추출하기 (예 : {'사과','바나나'}
+    public Vector<String> FindKeyword2(String[] s){
+        Vector<String> v = new Vector<>();
+
+        for(int i = 0; i< s.length; i++){
+            if(!s[i].equals("")){
+                String sSub = s[i].substring(0, s[i].length()-1);
+                if ((s[i].endsWith("을")||s[i].endsWith("를"))&&!v.contains(sSub)){
+                    v.add(sSub);
+                }
+            }
+        }
+        return v;
+    }
+
+    // 나눈 단어끼리 비교하기
+    /*public Vector<String> FindKeyword3(String[] s1, String s2) {
+        Vector<String> list = new Vector<>();
+        Vector<String> l = new Vector<>();
+        for (int i = 0; i<s1.length; i++)
+    }*/
 }
