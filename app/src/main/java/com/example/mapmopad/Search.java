@@ -5,9 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import io.realm.Realm;
@@ -22,7 +24,7 @@ public class Search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        Button addmemobtn = (Button) findViewById(R.id.addmemo2);
+        ImageButton addmemobtn = findViewById(R.id.addmemo2);
         addmemobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,7 +33,7 @@ public class Search extends AppCompatActivity {
             }
         });
 
-        Button mainBtn = findViewById(R.id.main);
+        ImageButton mainBtn = findViewById(R.id.main);
         mainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
