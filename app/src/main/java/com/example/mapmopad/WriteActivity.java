@@ -65,10 +65,23 @@ public class WriteActivity extends AppCompatActivity {
                     for (String j : extractedKeyword) {
                         if(!extractedKeyword.contains(j))
                             extractedKeyword.add(j);
+                        else continue;
 
-                        keyword.setObject(j);
-                        keyword.setFrequency(++frequency);
-                        category.add(new Keyword(j, frequency));
+                        //존재하는 키워드인지 확인(리스트 검사)
+                        //존재하는 키워드면 realm에서 frequency불러와서 +1
+                        //존재하지 않는 키워드면 realm에 frequency 1로 생성
+
+                        if (category.contains(j)) {
+                            keyword.setObject(j);
+                            frequency = keyword.getFrequency();
+                            keyword.setFrequency(++frequency);
+                            category.add(new Keyword(j, frequency));
+                        }
+                        else {
+                            keyword.setObject(j);
+                            keyword.setFrequency(1);
+                            category.add(new Keyword(j, 1));
+                        }
                     }
                 }
 
