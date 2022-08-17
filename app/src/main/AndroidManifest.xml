@@ -14,6 +14,15 @@
         android:theme="@style/Theme.MapMopad"
         tools:targetApi="31">
         <activity
+            android:name=".DetailKeywordNotes"
+            android:exported="false" />
+        <activity
+            android:name=".KeywordNotesList"
+            android:exported="false" />
+        <activity
+            android:name=".KeywordList"
+            android:exported="false" />
+        <activity
             android:name=".Detail"
             android:exported="false" />
         <activity

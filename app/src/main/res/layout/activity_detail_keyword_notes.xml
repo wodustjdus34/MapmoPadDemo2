@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Search">
+    tools:context=".DetailKeywordNotes">
 
     <LinearLayout
         android:id="@+id/topTitle"
@@ -18,7 +18,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/ic_home" />
+            android:background="@drawable/ic_home"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -32,25 +32,24 @@
             android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/addmemo2"
+            android:id="@+id/delete2"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
-            android:background="@drawable/ic_add" />
+            android:background="@drawable/ic_delete"/>
 
     </LinearLayout>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@id/topTitle">
-
-    <androidx.recyclerview.widget.RecyclerView
+    <TextView
+        android:id="@+id/textview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/recyclerview"
-        android:scrollbars="vertical"/>
-</LinearLayout>
+        android:layout_below="@id/topTitle"
+        android:layout_margin="15dp"
+        android:padding="15dp"
+        android:text="상세페이지"
+        android:textSize="30dp"
+        android:background="@drawable/rounded_corner"/>
 
 </RelativeLayout>

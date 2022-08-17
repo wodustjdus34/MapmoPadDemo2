@@ -50,9 +50,9 @@
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
-            android:text="USER NAME"
             android:autoSizeTextType="uniform"
             android:gravity="center"
+            android:text="USER NAME"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -80,6 +80,61 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/category1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_category_main"
+            android:text="category"
+            app:layout_constraintCircle="@id/forBtn"
+            app:layout_constraintCircleAngle="30"
+            app:layout_constraintCircleRadius="250dp"
+            tools:ignore="MissingConstraints,NotSibling" />
+
+        <Button
+            android:id="@+id/category2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_category_main"
+            android:text="category"
+            app:layout_constraintCircle="@id/forBtn"
+            app:layout_constraintCircleAngle="60"
+            app:layout_constraintCircleRadius="250dp"
+            tools:ignore="MissingConstraints,NotSibling" />
+
+        <Button
+            android:id="@+id/category3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_category_main"
+            android:text="category"
+            app:layout_constraintCircle="@id/forBtn"
+            app:layout_constraintCircleAngle="90"
+            app:layout_constraintCircleRadius="250dp"
+            tools:ignore="MissingConstraints,NotSibling" />
+
+        <Button
+            android:id="@+id/category4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_category_main"
+            android:text="category"
+            app:layout_constraintCircle="@id/forBtn"
+            app:layout_constraintCircleAngle="120"
+            app:layout_constraintCircleRadius="250dp"
+            tools:ignore="MissingConstraints,NotSibling" />
+
+        <Button
+            android:id="@+id/category5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_category_main"
+            android:text="category"
+            app:layout_constraintCircle="@id/forBtn"
+            app:layout_constraintCircleAngle="150"
+            app:layout_constraintCircleRadius="250dp"
+            tools:ignore="MissingConstraints,NotSibling" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

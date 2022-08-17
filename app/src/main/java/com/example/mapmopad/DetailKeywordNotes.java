@@ -18,24 +18,27 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 import io.realm.Sort;
 
-public class Detail extends AppCompatActivity {
+public class DetailKeywordNotes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_detail_keyword_notes);
+        TextView textView = findViewById(R.id.textview);
+
 
         Realm realm = Realm.getDefaultInstance();
 
-        RealmResults<Note> notesList = realm.where(Note.class).sort("createdTime", Sort.DESCENDING).findAll();
-        TextView textView = findViewById(R.id.textview);
-
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+        String s = bundle.getString("KEYWORD");
         int listNumber = bundle.getInt("POS");
+
+        RealmResults<Note> notesList = realm.where(Note.class).sort("createdTime", Sort.DESCENDING).contains("description", s).findAll();
+        RealmResults<Keyword> words = realm.where(Keyword.class).findAll();
         String description = notesList.get(listNumber).getDescription();
         textView.setText(description);
-        RealmResults<Keyword> words = realm.where(Keyword.class).findAll();
+
         Toast.makeText(getApplicationContext(), words.toString(), Toast.LENGTH_LONG).show();
 
 
@@ -48,7 +51,8 @@ public class Detail extends AppCompatActivity {
             }
         });
 
-        ImageButton deleteBtn = findViewById(R.id.delete);
+
+        ImageButton deleteBtn = findViewById(R.id.delete2);
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

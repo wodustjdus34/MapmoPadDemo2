@@ -10,19 +10,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
 import io.realm.Sort;
 
-public class Search extends AppCompatActivity {
+public class KeywordNotesList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_keyword_notes_list);
 
         ImageButton addmemobtn = findViewById(R.id.addmemo2);
         addmemobtn.setOnClickListener(new View.OnClickListener() {
@@ -42,21 +45,29 @@ public class Search extends AppCompatActivity {
             }
         });
 
+        //String s = "it will be a keyword";
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        String s = bundle.getString("KEYWORD");
+        TextView keywordName = findViewById(R.id.category);
+        keywordName.setText(s);
+
         Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();
 
-        RealmResults<Note> notesList = realm.where(Note.class).sort("createdTime", Sort.DESCENDING).findAll();
+        RealmResults<Note> notesList = realm.where(Note.class).sort("createdTime", Sort.DESCENDING).contains("description", s).findAll();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        MyAdapter myAdapter = new MyAdapter(notesList);
-        recyclerView.setAdapter(myAdapter);
+        MyKeywordNotesAdapter myKeywordNotesAdapter = new MyKeywordNotesAdapter(notesList);
+        recyclerView.setAdapter(myKeywordNotesAdapter);
 
-        myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
+        myKeywordNotesAdapter.setOnItemClickListener(new MyKeywordNotesAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
-                Intent intent = new Intent(getApplicationContext(), Detail.class);
+                Intent intent = new Intent(getApplicationContext(), DetailKeywordNotes.class);
                 Bundle bundle = new Bundle();
+                bundle.putString("KEYWORD", s);
                 bundle.putInt("POS", position);
                 intent.putExtras(bundle);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -68,7 +79,7 @@ public class Search extends AppCompatActivity {
         notesList.addChangeListener(new RealmChangeListener<RealmResults<Note>>() {
             @Override
             public void onChange(RealmResults<Note> notes) {
-                myAdapter.notifyDataSetChanged();
+                myKeywordNotesAdapter.notifyDataSetChanged();
             }
         });
 
