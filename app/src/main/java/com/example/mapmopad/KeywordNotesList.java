@@ -75,7 +75,6 @@ public class KeywordNotesList extends AppCompatActivity {
             }
         });
 
-
         notesList.addChangeListener(new RealmChangeListener<RealmResults<Note>>() {
             @Override
             public void onChange(RealmResults<Note> notes) {
