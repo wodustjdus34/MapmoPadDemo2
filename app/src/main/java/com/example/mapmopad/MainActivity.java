@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         Realm.setDefaultConfiguration(config);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main1);
 
         Button userName = (Button) findViewById(R.id.userName);
         userName.setOnClickListener(new View.OnClickListener(){

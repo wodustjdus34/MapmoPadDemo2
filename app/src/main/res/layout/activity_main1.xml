@@ -54,19 +54,34 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/userName"
-        android:layout_width="160dp"
-        android:layout_height="310dp"
-        android:layout_marginTop="210dp"
-        android:background="@drawable/semicircle"
-        android:paddingRight="30dp"
-        android:text="User name"
-        android:textSize="15dp" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/userNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="USER NAME"
+            android:layout_marginLeft="15dp"
+            android:translationZ="100dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_username"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView
@@ -84,11 +99,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_category_main"
+            android:text="category"
             app:layout_constraintCircle="@id/forBtn"
             app:layout_constraintCircleAngle="90"
             app:layout_constraintCircleRadius="250dp"
-            tools:ignore="MissingConstraints,NotSibling"
-            android:text="category"/>
+            tools:ignore="MissingConstraints,NotSibling" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
