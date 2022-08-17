@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="-"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:background="@drawable/round"
+            android:layout_margin="10dp">
+        </Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MapMoPad"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:padding="15dp"
+            android:layout_marginRight="80dp">
+        </TextView>
+
+        <Button
+            android:id="@+id/category"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="s"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:background="@drawable/round"
+            android:layout_margin="10dp">
+        </Button>
+
+        <Button
+            android:id="@+id/addmemo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="+"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:background="@drawable/round"
+            android:layout_marginVertical="10dp">
+        </Button>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/userName"
+        android:layout_width="160dp"
+        android:layout_height="310dp"
+        android:layout_marginTop="210dp"
+        android:background="@drawable/semicircle"
+        android:paddingRight="30dp"
+        android:text="User name"
+        android:textSize="15dp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/forBtn"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:background="@drawable/ic_category_main"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/category1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_category_main"
+            app:layout_constraintCircle="@id/forBtn"
+            app:layout_constraintCircleAngle="36"
+            app:layout_constraintCircleRadius="250dp"
+            tools:ignore="MissingConstraints,NotSibling"
+            android:text="category"/>
+        <Button
+            android:id="@+id/category2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_category_main"
+            app:layout_constraintCircle="@id/forBtn"
+            app:layout_constraintCircleAngle="72"
+            app:layout_constraintCircleRadius="250dp"
+            tools:ignore="MissingConstraints,NotSibling"
+            android:text="category"/>
+        <Button
+            android:id="@+id/category3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_category_main"
+            app:layout_constraintCircle="@id/forBtn"
+            app:layout_constraintCircleAngle="108"
+            app:layout_constraintCircleRadius="250dp"
+            tools:ignore="MissingConstraints,NotSibling"
+            android:text="category"/>
+        <Button
+            android:id="@+id/category4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_category_main"
+            app:layout_constraintCircle="@id/forBtn"
+            app:layout_constraintCircleAngle="144"
+            app:layout_constraintCircleRadius="250dp"
+            tools:ignore="MissingConstraints,NotSibling"
+            android:text="category"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>
