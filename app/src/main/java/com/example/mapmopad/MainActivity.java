@@ -42,13 +42,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button keyword = (Button) findViewById(R.id.keyword);
-        keyword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), KeywordTest.class);
-                startActivity(intent);
-            }
-        });
+        Button categoryBtn = findViewById(R.id.category);
+            categoryBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), KeywordList.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
-}

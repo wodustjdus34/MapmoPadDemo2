@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".Search">
+
+    <LinearLayout
+        android:id="@+id/topTitle"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/main"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="H"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:background="@drawable/round">
+        </Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="MapMoPad"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:textStyle="bold">
+        </TextView>
+
+        <Button
+            android:id="@+id/addmemo2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:text="+"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:layout_gravity="end"
+            android:background="@drawable/round"
+            >
+        </Button>
+
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/categoryName1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textSize="40sp"
+            android:text="category 1"
+            android:background="@drawable/rounded_corner"/>
+        <TextView
+            android:id="@+id/categoryNum1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="0"
+            android:layout_alignParentRight="true"/>
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
