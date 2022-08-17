@@ -3,22 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kqkq1/AndroidStudioProjects/MapmoPadDemo2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/kqkq1/AndroidStudioProjects/MapmoPadDemo2/app/src/main/res/layout/activity_test.xml" value="0.12817028985507245" />
         <entry key="..\:/Users/wodus/AndroidStudioProjects/MapMopad2/app/src/main/res/drawable/round.xml" value="0.1635" />
         <entry key="..\:/Users/wodus/AndroidStudioProjects/MapMopad2/app/src/main/res/drawable/rounded_corner.xml" value="0.1505" />
+        <entry key="..\:/Users/wodus/AndroidStudioProjects/MapMopad2/app/src/main/res/layout/activity_crowling_test.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/wodus/AndroidStudioProjects/MapMopad2/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/wodus/AndroidStudioProjects/MapMopad2/app/src/main/res/layout/activity_search.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/wodus/AndroidStudioProjects/MapMopad2/app/src/main/res/layout/activity_search.xml" value="0.2" />
         <entry key="..\:/Users/wodus/AndroidStudioProjects/MapMopad2/app/src/main/res/layout/activity_write.xml" value="0.23489583333333333" />
+        <entry key="..\:/Users/wodus/AndroidStudioProjects/MapMopad2/app/src/main/res/layout/item_loading.xml" value="0.2484375" />
         <entry key="..\:/Users/wodus/AndroidStudioProjects/MapMopad2/app/src/main/res/layout/item_view.xml" value="0.2484375" />
         <entry key="..\:/programming/android_java/MapmoPadDemo2/app/src/main/res/drawable/rounded_corner.xml" value="0.1825" />
-        <entry key="..\:/programming/android_java/MapmoPadDemo2/app/src/main/res/layout/activity_category.xml" value="0.25" />
         <entry key="..\:/programming/android_java/MapmoPadDemo2/app/src/main/res/layout/activity_detail.xml" value="0.1" />
         <entry key="..\:/programming/android_java/MapmoPadDemo2/app/src/main/res/layout/activity_main.xml" value="0.1767983789260385" />
         <entry key="..\:/programming/android_java/MapmoPadDemo2/app/src/main/res/layout/activity_search.xml" value="0.18" />
-        <entry key="..\:/programming/android_java/MapmoPadDemo2/app/src/main/res/layout/activity_search_results.xml" value="0.19021739130434784" />
-        <entry key="..\:/programming/android_java/MapmoPadDemo2/app/src/main/res/layout/activity_search_word.xml" value="0.17395833333333333" />
         <entry key="..\:/programming/android_java/MapmoPadDemo2/app/src/main/res/layout/activity_write.xml" value="0.14351851851851852" />
-        <entry key="..\:/programming/android_java/MapmoPadDemo2/app/src/main/res/layout/category_item.xml" value="0.19166666666666668" />
-        <entry key="..\:/programming/android_java/MapmoPadDemo2/app/src/main/res/layout/category_view.xml" value="0.29347826086956524" />
         <entry key="..\:/programming/android_java/MapmoPadDemo2/app/src/main/res/layout/item_view.xml" value="0.14351851851851852" />
       </map>
     </option>
