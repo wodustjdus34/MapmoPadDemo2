@@ -3,9 +3,11 @@ package com.example.mapmopad;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,7 +31,7 @@ public class Detail extends AppCompatActivity {
         int listNumber = bundle.getInt("POS");
         textView.setText(notesList.get(listNumber).getDescription());
 
-        Button mainBtn = findViewById(R.id.main);
+        ImageButton mainBtn = findViewById(R.id.main);
         mainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,7 +40,7 @@ public class Detail extends AppCompatActivity {
             }
         });
 
-        Button deleteBtn = findViewById(R.id.delete);
+        ImageButton deleteBtn = findViewById(R.id.delete);
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
