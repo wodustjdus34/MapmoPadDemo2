@@ -7,12 +7,16 @@ import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
 public class MainActivity extends AppCompatActivity {
+    TextView userNameoutput;
+    EditText userNameinput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +26,23 @@ public class MainActivity extends AppCompatActivity {
                 .allowWritesOnUiThread(true)
                 .build();
         Realm.setDefaultConfiguration(config);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button userName = (Button) findViewById(R.id.userName);
-        userName.setOnClickListener(new View.OnClickListener(){
+        userNameoutput = findViewById(R.id.userNameoutput);
+        userNameinput = findViewById(R.id.userNameinput);
 
+        ImageButton userNameMaker = findViewById(R.id.userNameBtn);
+        userNameMaker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userNameoutput.setText(userNameinput.getText().toString());
+            }
+        });
+
+        Button userName = (Button) findViewById(R.id.userNameoutput);
+        userName.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Search.class);
@@ -52,5 +67,9 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
+
         }
+
+
+
     }
