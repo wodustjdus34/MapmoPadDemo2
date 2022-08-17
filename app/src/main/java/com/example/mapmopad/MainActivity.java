@@ -10,10 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.security.Key;
 
 import io.realm.Realm;
+import io.realm.RealmChangeListener;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 import io.realm.Sort;
@@ -32,20 +34,44 @@ public class MainActivity extends AppCompatActivity {
         Realm.setDefaultConfiguration(config);
         super.onCreate(savedInstanceState);
         Realm realm = Realm.getDefaultInstance();
+
+        RealmResults<User> users = realm.where(User.class).findAll();
         RealmResults<Keyword> keywords = realm.where(Keyword.class).sort("num", Sort.DESCENDING).findAll();
         RealmResults<Note> notesList = realm.where(Note.class).findAll();
 
-        if (keywords.size() == 0 || notesList.size() < 5) {
+        keywords.addChangeListener(new RealmChangeListener<RealmResults<Keyword>>() {
+            @Override
+            public void onChange(RealmResults<Keyword> results) {
+                keywords.size();
+            }
+        });
 
+        if (keywords.size() == 0 || notesList.size() < 5) {
             setContentView(R.layout.activity_main);
             userNameoutput = findViewById(R.id.userNameOutput);
             userNameinput = findViewById(R.id.userNameinput);
 
             ImageButton userNameMaker = findViewById(R.id.userNameBtn);
+            if(!users.isEmpty()) {
+                userNameinput.setText(users.get(0).getName());
+                userNameoutput.setText(users.get(0).getName());
+            }
             userNameMaker.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    userNameoutput.setText(userNameinput.getText().toString());
+
+                    String username = userNameinput.getText().toString();
+                    realm.beginTransaction();
+                    if(users.isEmpty()) {
+                        User user = realm.createObject(User.class);
+                        user.setName(username);
+                    }
+                    else users.setString("name", username);
+                    realm.commitTransaction();
+                    finish();
+                    Toast.makeText(getApplicationContext(), "Name changed", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
                 }
             });
 
@@ -93,10 +119,27 @@ public class MainActivity extends AppCompatActivity {
 
 
             ImageButton userNameMaker = findViewById(R.id.userNameBtn);
+            if(!users.isEmpty()) {
+                userNameinput.setText(users.get(0).getName());
+                userNameoutput.setText(users.get(0).getName());
+            }
+
             userNameMaker.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    userNameoutput.setText(userNameinput.getText().toString());
+                    String username = userNameinput.getText().toString();
+                    realm.beginTransaction();
+                    if(users.isEmpty()) {
+                        User user = realm.createObject(User.class);
+                        user.setName(username);
+                        }
+                    else users.setString("name", username);
+
+                    realm.commitTransaction();
+                    finish();
+                    Toast.makeText(getApplicationContext(),"Name changed",Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
                 }
             });
 
@@ -149,10 +192,26 @@ public class MainActivity extends AppCompatActivity {
             });
 
             ImageButton userNameMaker = findViewById(R.id.userNameBtn);
+            if(!users.isEmpty()) {
+                userNameinput.setText(users.get(0).getName());
+                userNameoutput.setText(users.get(0).getName());
+            }
+
             userNameMaker.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    userNameoutput.setText(userNameinput.getText().toString());
+                    String username = userNameinput.getText().toString();
+                    realm.beginTransaction();
+                    if(users.isEmpty()) {
+                        User user = realm.createObject(User.class);
+                        user.setName(username);
+                    }
+                    else users.setString("name", username);
+                    realm.commitTransaction();
+                    finish();
+                    Toast.makeText(getApplicationContext(), "Name changed", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
                 }
             });
 
@@ -210,10 +269,26 @@ public class MainActivity extends AppCompatActivity {
             });
 
             ImageButton userNameMaker = findViewById(R.id.userNameBtn);
+            if(!users.isEmpty()) {
+                userNameinput.setText(users.get(0).getName());
+                userNameoutput.setText(users.get(0).getName());
+            }
+
             userNameMaker.setOnClickListener(new View.OnClickListener() {
+                String username = userNameinput.getText().toString();
                 @Override
                 public void onClick(View v) {
-                    userNameoutput.setText(userNameinput.getText().toString());
+                    realm.beginTransaction();
+                    if(users.isEmpty()) {
+                        User user = realm.createObject(User.class);
+                        user.setName(username);
+                    }
+                    else users.setString("name", username);
+                    realm.commitTransaction();
+                    finish();
+                    Toast.makeText(getApplicationContext(), "Name changed", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
                 }
             });
 
@@ -277,10 +352,25 @@ public class MainActivity extends AppCompatActivity {
             });
 
             ImageButton userNameMaker = findViewById(R.id.userNameBtn);
+            if(!users.isEmpty()) {
+                userNameinput.setText(users.get(0).getName());
+                userNameoutput.setText(users.get(0).getName());
+            }
             userNameMaker.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    userNameoutput.setText(userNameinput.getText().toString());
+                    String username = userNameinput.getText().toString();
+                    realm.beginTransaction();
+                    if(users.isEmpty()) {
+                        User user = realm.createObject(User.class);
+                        user.setName(username);
+                    }
+                    else users.setString("name", username);
+                    realm.commitTransaction();
+                    finish();
+                    Toast.makeText(getApplicationContext(), "Name changed", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
                 }
             });
 
@@ -317,7 +407,6 @@ public class MainActivity extends AppCompatActivity {
         else {
             setContentView(R.layout.activity_main5);
             userNameoutput = findViewById(R.id.userNameOutput);
-            userNameinput = findViewById(R.id.userNameinput);
 
             Button category1 = findViewById(R.id.category1);
             Button category2 = findViewById(R.id.category2);
@@ -353,10 +442,27 @@ public class MainActivity extends AppCompatActivity {
             });
 
             ImageButton userNameMaker = findViewById(R.id.userNameBtn);
+
+            if(!users.isEmpty()) {
+                userNameinput.setText(users.get(0).getName());
+                userNameoutput.setText(users.get(0).getName());
+            }
+
             userNameMaker.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    userNameoutput.setText(userNameinput.getText().toString());
+                    String username = userNameinput.getText().toString();
+                    realm.beginTransaction();
+                    if(users.isEmpty()) {
+                        User user = realm.createObject(User.class);
+                        user.setName(username);
+                    }
+                    else users.setString("name", username);
+                    realm.commitTransaction();
+                    finish();
+                    Toast.makeText(getApplicationContext(), "Name changed", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
                 }
             });
 

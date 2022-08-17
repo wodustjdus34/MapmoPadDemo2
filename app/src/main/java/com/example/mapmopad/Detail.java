@@ -39,7 +39,7 @@ public class Detail extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), words.toString(), Toast.LENGTH_LONG).show();
 
 
-        ImageButton mainBtn = findViewById(R.id.main);
+        ImageButton mainBtn = findViewById(R.id.main2);
         mainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
