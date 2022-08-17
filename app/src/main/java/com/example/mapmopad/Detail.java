@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Vector;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -27,7 +29,9 @@ public class Detail extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         int listNumber = bundle.getInt("POS");
-        textView.setText(notesList.get(listNumber).getDescription());
+        String description = notesList.get(listNumber).getDescription();
+        textView.setText(description);
+
 
         Button mainBtn = findViewById(R.id.main);
         mainBtn.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +49,12 @@ public class Detail extends AppCompatActivity {
                 realm.executeTransaction(new Realm.Transaction() {
                     @Override
                     public void execute(Realm realm) {
+                        Vector<String> s = WriteActivity.FindKeyword2(WriteActivity.FindKeyword1(description));
+                        for(int i = 0; i<s.size(); i++){
+                            RealmResults<Keyword> keywords = realm.where(Keyword.class).contains("category",s.get(i)).findAll();
+                            if(keywords.get(listNumber).getNum() == 1) keywords.get(listNumber).deleteFromRealm();
+                            else keywords.get(listNumber).setNum(keywords.get(listNumber).getNum()-1);
+                        }
                         notesList.get(listNumber).deleteFromRealm();
                         Toast.makeText(getApplicationContext(),"deleted", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), Search.class);

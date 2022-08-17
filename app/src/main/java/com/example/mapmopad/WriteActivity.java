@@ -64,15 +64,13 @@ public class WriteActivity extends AppCompatActivity {
             }
         });
     }
-    // (예 : 사과를 먹고 싶다. 사과를 샀다. 바나나를 버렸다.)
-    // 단어 나누기 (예 : {'사과를','먹고', '싶다', '', '사과를', '샀다', '', '바나나를', '버렸다'} )
-    public String[] FindKeyword1(String s) {
+
+    public static String[] FindKeyword1(String s) {
         String[] list = s.split("\\s|,|\\.");
         return list;
     }
 
-    // 목적어 추출하기 (예 : {'사과','바나나'}
-    public Vector<String> FindKeyword2(String[] s){
+    public static Vector<String> FindKeyword2(String[] s){
         Vector<String> v = new Vector<>();
 
         for(int i = 0; i< s.length; i++){
@@ -85,11 +83,4 @@ public class WriteActivity extends AppCompatActivity {
         }
         return v;
     }
-
-    // 나눈 단어끼리 비교하기
-    /*public Vector<String> FindKeyword3(String[] s1, String s2) {
-        Vector<String> list = new Vector<>();
-        Vector<String> l = new Vector<>();
-        for (int i = 0; i<s1.length; i++)
-    }*/
 }
