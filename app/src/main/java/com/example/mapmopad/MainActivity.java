@@ -39,13 +39,6 @@ public class MainActivity extends AppCompatActivity {
         RealmResults<Keyword> keywords = realm.where(Keyword.class).sort("num", Sort.DESCENDING).findAll();
         RealmResults<Note> notesList = realm.where(Note.class).findAll();
 
-        keywords.addChangeListener(new RealmChangeListener<RealmResults<Keyword>>() {
-            @Override
-            public void onChange(RealmResults<Keyword> results) {
-                keywords.size();
-            }
-        });
-
         if (keywords.size() == 0 || notesList.size() < 5) {
             setContentView(R.layout.activity_main);
             userNameoutput = findViewById(R.id.userNameOutput);

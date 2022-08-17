@@ -39,7 +39,9 @@ public class DetailKeywordNotes extends AppCompatActivity {
         String description = notesList.get(listNumber).getDescription();
         textView.setText(description);
 
-        ImageButton mainBtn = findViewById(R.id.main);
+        Toast.makeText(getApplicationContext(),words.toString(),Toast.LENGTH_LONG).show();
+
+        ImageButton mainBtn = findViewById(R.id.main5);
         mainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,16 +58,20 @@ public class DetailKeywordNotes extends AppCompatActivity {
                 realm.executeTransaction(new Realm.Transaction() {
                     @Override
                     public void execute(Realm realm) {
-                        Vector<String> s = WriteActivity.FindKeyword2(WriteActivity.FindKeyword1(description));
-                        for(int i = 0; i<s.size(); i++){
-                            RealmResults<Keyword> keywords = realm.where(Keyword.class).equalTo("category", s.get(i)).findAll();
+                        Vector<String> v = WriteActivity.FindKeyword2(WriteActivity.FindKeyword1(description));
+                        for(int i = 0; i<v.size(); i++){
+                            RealmResults<Keyword> keywords = realm.where(Keyword.class).equalTo("category", v.get(i)).findAll();
                             if(keywords.get(0).getNum() == 1) keywords.get(0).deleteFromRealm();
                             else keywords.get(0).setNum(keywords.get(0).getNum()-1);
                         }
                         notesList.get(listNumber).deleteFromRealm();
                         Toast.makeText(getApplicationContext(),"Note deleted",Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), Search.class);
-                        startActivity(intent);
+                        Intent intent = new Intent(getApplicationContext(), KeywordNotesList.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("KEYWORD", s);
+                        intent.putExtras(bundle);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        getApplicationContext().startActivity(intent);
                     }
                 });
             }
