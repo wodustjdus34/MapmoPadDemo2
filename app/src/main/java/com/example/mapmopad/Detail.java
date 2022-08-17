@@ -36,7 +36,6 @@ public class Detail extends AppCompatActivity {
         String description = notesList.get(listNumber).getDescription();
         textView.setText(description);
         RealmResults<Keyword> words = realm.where(Keyword.class).findAll();
-        Toast.makeText(getApplicationContext(), words.toString(), Toast.LENGTH_LONG).show();
 
 
         ImageButton mainBtn = findViewById(R.id.main2);
@@ -62,6 +61,7 @@ public class Detail extends AppCompatActivity {
                             else keywords.get(0).setNum(keywords.get(0).getNum()-1);
                         }
                         notesList.get(listNumber).deleteFromRealm();
+                        Toast.makeText(getApplicationContext(), "Note deleted",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), Search.class);
                         startActivity(intent);
                     }

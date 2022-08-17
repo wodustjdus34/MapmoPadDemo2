@@ -54,8 +54,7 @@ public class WriteActivity extends AppCompatActivity {
                     }
                 }
                 realm.commitTransaction();
-//                RealmResults<Keyword> keywords = realm.where(Keyword.class).findAll();
-                //Toast.makeText(getApplicationContext(), "SAVE IT", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "SAVE IT", Toast.LENGTH_SHORT).show();
                 finish();
 
                 Intent intent = new Intent(getApplicationContext(), Search.class);

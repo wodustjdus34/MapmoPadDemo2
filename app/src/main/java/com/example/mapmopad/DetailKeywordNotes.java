@@ -39,9 +39,6 @@ public class DetailKeywordNotes extends AppCompatActivity {
         String description = notesList.get(listNumber).getDescription();
         textView.setText(description);
 
-        Toast.makeText(getApplicationContext(), words.toString(), Toast.LENGTH_LONG).show();
-
-
         ImageButton mainBtn = findViewById(R.id.main);
         mainBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +63,7 @@ public class DetailKeywordNotes extends AppCompatActivity {
                             else keywords.get(0).setNum(keywords.get(0).getNum()-1);
                         }
                         notesList.get(listNumber).deleteFromRealm();
+                        Toast.makeText(getApplicationContext(),"Note deleted",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), Search.class);
                         startActivity(intent);
                     }
