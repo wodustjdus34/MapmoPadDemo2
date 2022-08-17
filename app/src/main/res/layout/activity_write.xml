@@ -17,8 +17,7 @@
             android:text="완료"
             android:layout_marginLeft="300dp"
             android:layout_marginVertical="20dp"
-            android:backgroundTint="#B4B4FF">
-
+            android:background="@drawable/rounded_corner">
         </Button>
 
     </LinearLayout>
