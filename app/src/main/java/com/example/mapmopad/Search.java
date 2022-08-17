@@ -53,6 +53,7 @@ public class Search extends AppCompatActivity {
         myAdapter.setOnItemClickListener(new MyAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
+                //Toast.makeText(getApplicationContext(), position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), Detail.class);
                 Bundle bundle = new Bundle();
                 bundle.putInt("POS", position);

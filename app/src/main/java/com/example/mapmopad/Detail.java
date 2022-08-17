@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 public class Detail extends AppCompatActivity {
 
@@ -21,7 +22,7 @@ public class Detail extends AppCompatActivity {
 
         Realm realm = Realm.getDefaultInstance();
 
-        RealmResults<Note> notesList = realm.where(Note.class).findAll();
+        RealmResults<Note> notesList = realm.where(Note.class).sort("createdTime", Sort.DESCENDING).findAll();
         TextView textView = findViewById(R.id.textview);
 
         Intent intent = getIntent();
