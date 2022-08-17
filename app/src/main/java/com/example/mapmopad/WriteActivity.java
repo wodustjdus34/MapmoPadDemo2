@@ -1,5 +1,6 @@
 package com.example.mapmopad;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,12 @@ import io.realm.Realm;
 
 public class WriteActivity extends AppCompatActivity {
 
+    //밑에 list contains함수 사용하는데 필요할 것 같아서 override
+    //근데 @Override 하면 오류뜸
+    public boolean equals(@Nullable Keyword keyword) {
+        return super.equals(keyword.object);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +36,8 @@ public class WriteActivity extends AppCompatActivity {
         Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();
 
+
+
         savememo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,7 +47,7 @@ public class WriteActivity extends AppCompatActivity {
                 //함수에 description 가져다 씀
                 //함수 돌고 나오는 변수(키워드 리스트)에 object변수 연결
                 //기본 frequency는 0으로 초기화
-                int frequency = 0;
+                int frequency;
                 ArrayList category = new ArrayList();
 
                 realm.beginTransaction();
@@ -65,10 +74,23 @@ public class WriteActivity extends AppCompatActivity {
                     for (String j : extractedKeyword) {
                         if(!extractedKeyword.contains(j))
                             extractedKeyword.add(j);
+                        else continue;
 
-                        keyword.setObject(j);
-                        keyword.setFrequency(++frequency);
-                        category.add(new Keyword(j, frequency));
+                        //존재하는 키워드인지 확인(리스트 검사)
+                        //존재하는 키워드면 realm에서 frequency불러와서 +1
+                        //존재하지 않는 키워드면 realm에 frequency 1로 생성
+
+                        if (category.contains(j)) {
+                            keyword.setObject(j);
+                            frequency = keyword.getFrequency();
+                            keyword.setFrequency(++frequency);
+                            category.add(new Keyword(j, frequency));
+                        }
+                        else {
+                            keyword.setObject(j);
+                            keyword.setFrequency(1);
+                            category.add(new Keyword(j, 1));
+                        }
                     }
                 }
 
