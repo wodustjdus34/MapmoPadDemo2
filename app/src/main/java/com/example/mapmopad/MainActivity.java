@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        userNameoutput = findViewById(R.id.userNameoutput);
+        userNameoutput = findViewById(R.id.userNameOutput);
         userNameinput = findViewById(R.id.userNameinput);
 
         ImageButton userNameMaker = findViewById(R.id.userNameBtn);
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button userName = (Button) findViewById(R.id.userNameoutput);
+        Button userName = (Button) findViewById(R.id.searchBtn);
         userName.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
