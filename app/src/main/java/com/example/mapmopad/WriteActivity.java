@@ -54,13 +54,13 @@ public class WriteActivity extends AppCompatActivity {
                     }
                 }
                 realm.commitTransaction();
-                RealmResults<Keyword> keywords = realm.where(Keyword.class).findAll();
-                Toast.makeText(getApplicationContext(), keywords.toString(),Toast.LENGTH_SHORT).show();
+//                RealmResults<Keyword> keywords = realm.where(Keyword.class).findAll();
                 //Toast.makeText(getApplicationContext(), "SAVE IT", Toast.LENGTH_SHORT).show();
                 finish();
 
                 Intent intent = new Intent(getApplicationContext(), Search.class);
                 startActivity(intent);
+
             }
         });
     }
@@ -76,7 +76,7 @@ public class WriteActivity extends AppCompatActivity {
         for(int i = 0; i< s.length; i++){
             if(!s[i].equals("")){
                 String sSub = s[i].substring(0, s[i].length()-1);
-                if ((s[i].endsWith("을")||s[i].endsWith("를"))&&!v.contains(sSub)){
+                if ((s[i].endsWith("을")||s[i].endsWith("를")||s[i].endsWith("는")||s[i].endsWith("은")||s[i].endsWith("가")||s[i].endsWith("이"))&&!v.contains(sSub)){
                     v.add(sSub);
                 }
             }

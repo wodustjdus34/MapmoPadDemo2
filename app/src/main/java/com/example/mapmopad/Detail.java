@@ -9,10 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.security.Key;
 import java.util.Vector;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+import io.realm.Sort;
 
 public class Detail extends AppCompatActivity {
 
@@ -23,7 +25,7 @@ public class Detail extends AppCompatActivity {
 
         Realm realm = Realm.getDefaultInstance();
 
-        RealmResults<Note> notesList = realm.where(Note.class).findAll();
+        RealmResults<Note> notesList = realm.where(Note.class).sort("createdTime", Sort.DESCENDING).findAll();
         TextView textView = findViewById(R.id.textview);
 
         Intent intent = getIntent();
@@ -31,6 +33,8 @@ public class Detail extends AppCompatActivity {
         int listNumber = bundle.getInt("POS");
         String description = notesList.get(listNumber).getDescription();
         textView.setText(description);
+        RealmResults<Keyword> words = realm.where(Keyword.class).findAll();
+        Toast.makeText(getApplicationContext(), words.toString(), Toast.LENGTH_LONG).show();
 
 
         Button mainBtn = findViewById(R.id.main);
@@ -51,12 +55,11 @@ public class Detail extends AppCompatActivity {
                     public void execute(Realm realm) {
                         Vector<String> s = WriteActivity.FindKeyword2(WriteActivity.FindKeyword1(description));
                         for(int i = 0; i<s.size(); i++){
-                            RealmResults<Keyword> keywords = realm.where(Keyword.class).contains("category",s.get(i)).findAll();
-                            if(keywords.get(listNumber).getNum() == 1) keywords.get(listNumber).deleteFromRealm();
-                            else keywords.get(listNumber).setNum(keywords.get(listNumber).getNum()-1);
+                            RealmResults<Keyword> keywords = realm.where(Keyword.class).equalTo("category", s.get(i)).findAll();
+                            if(keywords.get(0).getNum() == 1) keywords.get(0).deleteFromRealm();
+                            else keywords.get(0).setNum(keywords.get(0).getNum()-1);
                         }
                         notesList.get(listNumber).deleteFromRealm();
-                        Toast.makeText(getApplicationContext(),"deleted", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), Search.class);
                         startActivity(intent);
                     }
