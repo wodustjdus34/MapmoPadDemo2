@@ -31,6 +31,7 @@
         </TextView>
 
         <Button
+            android:id="@+id/category"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:text="s"

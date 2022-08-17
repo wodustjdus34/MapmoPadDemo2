@@ -53,9 +53,10 @@ public class WriteActivity extends AppCompatActivity {
                         keywords.setInt("num",keywords.get(0).getNum()+1);
                     }
                 }
-
                 realm.commitTransaction();
-                Toast.makeText(getApplicationContext(), "SAVE IT", Toast.LENGTH_SHORT).show();
+                RealmResults<Keyword> keywords = realm.where(Keyword.class).findAll();
+                Toast.makeText(getApplicationContext(), keywords.toString(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "SAVE IT", Toast.LENGTH_SHORT).show();
                 finish();
 
                 Intent intent = new Intent(getApplicationContext(), Search.class);
@@ -63,8 +64,8 @@ public class WriteActivity extends AppCompatActivity {
             }
         });
     }
-    // (예 : 사과를 먹고 싶다. 사과는 몸에 좋다. 바나나는 내 취향이 아니다.)
-    // 단어 나누기 (예 : {'사과를','먹고', '싶다', '', '사과는', '몸에', '좋다', '', '바나나는', '내', '취향이', '아니다'} )
+    // (예 : 사과를 먹고 싶다. 사과를 샀다. 바나나를 버렸다.)
+    // 단어 나누기 (예 : {'사과를','먹고', '싶다', '', '사과를', '샀다', '', '바나나를', '버렸다'} )
     public String[] FindKeyword1(String s) {
         String[] list = s.split("\\s|,|\\.");
         return list;
@@ -77,7 +78,7 @@ public class WriteActivity extends AppCompatActivity {
         for(int i = 0; i< s.length; i++){
             if(!s[i].equals("")){
                 String sSub = s[i].substring(0, s[i].length()-1);
-                if ( s[i].endsWith("을")&&!v.contains(sSub)){
+                if ((s[i].endsWith("을")||s[i].endsWith("를"))&&!v.contains(sSub)){
                     v.add(sSub);
                 }
             }
