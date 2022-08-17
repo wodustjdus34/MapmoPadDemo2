@@ -83,8 +83,14 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main1);
             userNameoutput = findViewById(R.id.userNameOutput);
             userNameinput = findViewById(R.id.userNameinput);
-            TextView category1 = findViewById(R.id.category1);
+            Button category1 = findViewById(R.id.category1);
             category1.setText(keywords.get(0).getCategory());
+
+            category1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category1, view); }
+            });
+
 
             ImageButton userNameMaker = findViewById(R.id.userNameBtn);
             userNameMaker.setOnClickListener(new View.OnClickListener() {
@@ -128,10 +134,19 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main2);
             userNameoutput = findViewById(R.id.userNameOutput);
             userNameinput = findViewById(R.id.userNameinput);
-            TextView category1 = findViewById(R.id.category1);
-            TextView category2 = findViewById(R.id.category2);
+            Button category1 = findViewById(R.id.category1);
+            Button category2 = findViewById(R.id.category2);
             category1.setText(keywords.get(0).getCategory());
             category2.setText(keywords.get(1).getCategory());
+
+            category1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category1, view); }
+            });
+            category2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category2, view); }
+            });
 
             ImageButton userNameMaker = findViewById(R.id.userNameBtn);
             userNameMaker.setOnClickListener(new View.OnClickListener() {
@@ -174,12 +189,25 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main3);
             userNameoutput = findViewById(R.id.userNameOutput);
             userNameinput = findViewById(R.id.userNameinput);
-            TextView category1 = findViewById(R.id.category1);
-            TextView category2 = findViewById(R.id.category2);
-            TextView category3 = findViewById(R.id.category3);
+            Button category1 = findViewById(R.id.category1);
+            Button category2 = findViewById(R.id.category2);
+            Button category3 = findViewById(R.id.category3);
             category1.setText(keywords.get(0).getCategory());
             category2.setText(keywords.get(1).getCategory());
             category3.setText(keywords.get(2).getCategory());
+
+            category1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category1, view); }
+            });
+            category2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category2, view); }
+            });
+            category3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category3, view); }
+            });
 
             ImageButton userNameMaker = findViewById(R.id.userNameBtn);
             userNameMaker.setOnClickListener(new View.OnClickListener() {
@@ -222,15 +250,31 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main4);
             userNameoutput = findViewById(R.id.userNameOutput);
             userNameinput = findViewById(R.id.userNameinput);
-            TextView category1 = findViewById(R.id.category1);
-            TextView category2 = findViewById(R.id.category2);
-            TextView category3 = findViewById(R.id.category3);
-            TextView category4 = findViewById(R.id.category4);
+            Button category1 = findViewById(R.id.category1);
+            Button category2 = findViewById(R.id.category2);
+            Button category3 = findViewById(R.id.category3);
+            Button category4 = findViewById(R.id.category4);
             category1.setText(keywords.get(0).getCategory());
             category2.setText(keywords.get(1).getCategory());
             category3.setText(keywords.get(2).getCategory());
             category4.setText(keywords.get(3).getCategory());
 
+            category1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category1, view); }
+            });
+            category2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category2, view); }
+            });
+            category3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category3, view); }
+            });
+            category4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category4, view); }
+            });
 
             ImageButton userNameMaker = findViewById(R.id.userNameBtn);
             userNameMaker.setOnClickListener(new View.OnClickListener() {
@@ -275,17 +319,38 @@ public class MainActivity extends AppCompatActivity {
             userNameoutput = findViewById(R.id.userNameOutput);
             userNameinput = findViewById(R.id.userNameinput);
 
-            TextView category1 = findViewById(R.id.category1);
-            TextView category2 = findViewById(R.id.category2);
-            TextView category3 = findViewById(R.id.category3);
-            TextView category4 = findViewById(R.id.category4);
-            TextView category5 = findViewById(R.id.category5);
+            Button category1 = findViewById(R.id.category1);
+            Button category2 = findViewById(R.id.category2);
+            Button category3 = findViewById(R.id.category3);
+            Button category4 = findViewById(R.id.category4);
+            Button category5 = findViewById(R.id.category5);
 
             category1.setText(keywords.get(0).getCategory());
             category2.setText(keywords.get(1).getCategory());
             category3.setText(keywords.get(2).getCategory());
             category4.setText(keywords.get(3).getCategory());
             category5.setText(keywords.get(4).getCategory());
+
+            category1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category1, view); }
+            });
+            category2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category2, view); }
+            });
+            category3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category3, view); }
+            });
+            category4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category4, view); }
+            });
+            category5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) { onCategoryClick(category5, view); }
+            });
 
             ImageButton userNameMaker = findViewById(R.id.userNameBtn);
             userNameMaker.setOnClickListener(new View.OnClickListener() {
@@ -321,9 +386,17 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-
         }
+    }
 
+    public void onCategoryClick(Button button, View v) {
+        String s = button.getText().toString();
+        Intent intent = new Intent(getApplicationContext(), KeywordNotesList.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("KEYWORD", s);
+        intent.putExtras(bundle);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        getApplicationContext().startActivity(intent);
     }
 
 }
